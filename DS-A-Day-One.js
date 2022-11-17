@@ -308,7 +308,7 @@ function highOrLower(array){
 const array3 = [1, 2, 3, 4, 5, 6, 7, 8]; // Assignment --> O(1)
 
 // Time: iterating over the entire array --> O(n)
-// Space: just the return value is added to memory --> O(1)
+// Space: dictated by the size of the array --> O(n)
 function determineSumOfSequentialArray(array){
     let sum = 0; // Assignment --> O(1)
 
@@ -326,7 +326,7 @@ function determineSumOfSequentialArray(array){
 };
 
 // Time: comes from recursive calls --> O(n)
-// Space: only the return value is added to memory --> O(1)
+// Space: dictated by the number of recursive calls --> O(n)
 function searchSortedArray(number, array, beginIndex = 0, endIndex = array.length-1){
     let middleIndex = Math.floor((beginIndex + endIndex) / 2); // Three singular operations, drop constants --> O(1)
 
@@ -363,7 +363,7 @@ function compareArrays(arr1, arr2){
 };
 
 // Time: nested loops --> O(n²)
-// Space: dictated by the size of the array
+// Space: dictated by the size of the array --> O(n)
 function sortByVlue(array){
     
     function swap(array, index1, index2){
