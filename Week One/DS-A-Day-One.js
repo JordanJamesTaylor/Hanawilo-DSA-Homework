@@ -96,7 +96,7 @@ function badFn(num){ // O(n!) function
     }
 };
 
-badFn(5); // Runs 120 times
+badFn(5);
 
 /*
     Problem Three: Name 3 reasons why we care about Big O and code performance.
@@ -219,7 +219,6 @@ Object.values(obj); // Iteration, O(n) --> Linear
 /*
     Problem Twelve: Given the following array methods, label what time time complexity is for each one:
 */
-
 const array = [1, 2, 3, 4, 5, 6, 7];
 
 array.push(8) // Appending, O(1) --> Constant
