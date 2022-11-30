@@ -14,10 +14,6 @@
     
     @param {number[]} nums 
     @return {number}
-
-    Edge Cases:
-        Array is empty --> return null
-        More than one elements have the same frequencies 
     
     *** BRUTE FORCE SOLUTION ***
 
@@ -62,6 +58,10 @@
     Space: O(1)
 
     *** EDGE LINEAR SOLUTION **
+
+    Edge Cases:
+        Array is empty --> return null
+        More than one elements have the same frequencies 
 
     1. Repeat steps 1 - 4 of linear solution but set majorityEl to an empty array
 
@@ -142,7 +142,7 @@ function solutionWithEdges(nums){
     for(let prop in memo){ // Iteration --> O(n)
         if(memo[prop] > counter){ // Comparison --> O(1)
             majorityEl = []; // Assignment --> O(1)
-            majorityEl.push(prop); // Assignment --> O(1)
+            majorityEl[0] = prop; // Assignment --> O(1)
             counter = memo[prop]; // Assignment --> O(1)
         }else if(memo[prop] === counter){ // Comparison --> O(1)
             majorityEl.push(prop); // Assignment --> O(1)
