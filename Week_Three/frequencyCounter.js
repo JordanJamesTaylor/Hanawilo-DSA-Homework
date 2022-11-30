@@ -109,7 +109,7 @@ function solution(nums){
     */
     let memo = {}; // Assignment --> O(1)
     let counter = 0; // Assignment --> O(1)
-    let majorityEl = []; // Declaration --> O(1)
+    let majorityEl = 0; // Declaration --> O(1)
 
     if(!nums.length) return null;
 
