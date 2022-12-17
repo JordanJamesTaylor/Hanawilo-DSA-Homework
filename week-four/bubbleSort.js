@@ -100,7 +100,10 @@ const sortedByRating1 = [
 ];
 
 function bubbleSort(arr, prop){
-    
+    /*
+        ACCESS MAP DATA:  
+        data[0].age.get('age))  
+    */
 };
 
 console.log(bubbleSort(sortedByRating1, "age"));

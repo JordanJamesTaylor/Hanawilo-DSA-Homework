@@ -98,75 +98,21 @@ function bruteForceSolution(nums){
 };
 
 function solution(nums){
-    /*
-        Hey Tony,
-        
-        I feel like this function could be a little cleaner, I don't think 
-        I need the counter but didn't know how to keey track of the highest
-        frequency between iterations of the loop.
+    let n = nums.length;
+    let memo = {};
 
-        Do you have any suggestions?
-    */
-    let memo = {}; // Assignment --> O(1)
-    let counter = 0; // Assignment --> O(1)
-    let majorityEl = 0; // Declaration --> O(1)
-
-    if(!nums.length) return null;
-
-    for(let val of nums){ // Iteration --> O(n)
-        memo[val] = (memo[val] || 0) + 1; // Assignment --> O(1)
+    for(const num of nums){
+      memo[num] = (memo[num] || 0) + 1;
+  
+      if(memo[num] > n/2 ){
+        return num;
+      }
     }
-
-    for(let prop in memo){ // Iteration --> O(n)
-        if(memo[prop] > counter){ // Comparison --> O(1)
-            majorityEl = prop; // Assignment --> O(1)
-            counter = memo[prop]; // Assignment --> O(1)
-        }
-    }
-
-    return majorityEl;
+    
+    return -1;
 };
 
-function solutionWithEdges(nums){
-    let memo = {}; // Assignment --> O(1)
-    let counter = 1; // Assignment --> O(1)
-    let majorityEl = []; // Declaration --> O(1)
-
-    //console.log("ARR LENGTH:", !nums.length);
-    if(!nums.length) return null;
-
-    for(let val of nums){ // Iteration --> O(n)
-        memo[val] = (memo[val] || 0) + 1; // Assignment --> O(1)
-    }
-
-    for(let prop in memo){ // Iteration --> O(n)
-        if(memo[prop] > counter){ // Comparison --> O(1)
-            majorityEl = []; // Assignment --> O(1)
-            majorityEl[0] = prop; // Assignment --> O(1)
-            counter = memo[prop]; // Assignment --> O(1)
-        }else if(memo[prop] === counter){ // Comparison --> O(1)
-            majorityEl.push(prop); // Assignment --> O(1)
-            counter = memo[prop]; // Assignment --> O(1)
-        }
-    }
-
-    if(majorityEl.length === 1){  // Comparison --> O(1)
-        return majorityEl[0]; // Return --> O(1)
-    }else{
-        const majorityNums = majorityEl.map(str => { // Iteration --> O(n)
-            return Number(str); // Type coercion --> O(1)
-        });
-
-        return majorityNums; // Return --> O(1)
-    }
-};
-
-console.log(solution([3,2,3])); // 3  
-console.log(solution([2,2,1,1,1,2,2])); // 2
-console.log(solution([4,4,1,1,1,4,4])); // 4
-console.log(solution([2,2,1,1,1])); // 1
-
-console.log(solutionWithEdges([])); // null
-console.log(solutionWithEdges([4,4,2,2,1,1,1,4,4])); // 4
-console.log(solutionWithEdges([1,1,2,2,2,3,3,3,3,4,4,5,5,5,5])); // [3, 5]
-console.log(solutionWithEdges([6,3,2,3,6,7,6,2,2])); // [2, 6]
+// console.log(solution([3,2,3])); // 3  
+// console.log(solution([2,2,1,1,1,2,2,5,5,6,7])); // 2
+// console.log(solution([4,4,1,1,1,4,4])); // 4
+// console.log(solution([2,2,1,1,1])); // 1
